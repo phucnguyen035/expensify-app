@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import AddExpense from '../components/AddExpense';
-import EditExpense from '../components/EditExpense';
 import ExpenseDashboard from '../components/ExpenseDashboard';
 import Header from '../components/Header';
+import AddExpense from '../components/AddExpense';
+import EditExpense from '../components/EditExpense';
 import NotFoundPage from '../components/NotFoundPage';
 
 const AppRouter = () => (
