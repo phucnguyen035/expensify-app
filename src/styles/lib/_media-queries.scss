@@ -1,0 +1,34 @@
+// Breakpoints
+$small: 300px;
+$medium: 600px;
+$large: 900px;
+$extra-large: 1200px;
+
+// MEDIA QUERIES GO HERE
+// Small screen (phones)
+@mixin small {
+  @media (min-width: #{$small}) {
+    @content;
+  }
+}
+
+// Medium screen (phones in landscape, tablet,...)
+@mixin medium {
+  @media (min-width: #{$medium}) {
+    @content;
+  }
+}
+
+// Large screen (landscape tablets, desktops)
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+// Extra large screen (4K monitors)
+@mixin extra-large {
+  @media (min-width: #{$extra-large}) {
+    @content;
+  }
+}

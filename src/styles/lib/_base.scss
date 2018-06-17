@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $mainFont;
+  font-size: $md-size;
+}
+
+@mixin clearfix {
+  clear: both;
+}
+
+.is-active {
+  font-weight: bold;
+}
