@@ -90,5 +90,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+public/bundle.js
+public/bundle.js.map
+public/main.css
+public/main.css.map
+
+
 
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
