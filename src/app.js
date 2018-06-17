@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'react-dates/initialize';
+// import 'react-dates/initialize'; Remnant of new react-dates
 import { Provider } from 'react-redux';
 import AppRouter from './routes/AppRouter';
 import configStore from './store/configStore';
