@@ -3,7 +3,7 @@
 exports[`Edit expense page should render correctly 1`] = `
 <div>
   <ExpenseForm
-    amount={5}
+    amount={500}
     createdAt={0}
     desc="test 1"
     id="1"

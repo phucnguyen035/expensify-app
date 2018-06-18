@@ -4,7 +4,7 @@ exports[`should render Expense List with expenses 1`] = `
 <React.Fragment>
   <Connect(ExpenseListFilter) />
   <ExpenseListItem
-    amount={5}
+    amount={500}
     createdAt={0}
     desc="test 1"
     id="1"
@@ -12,7 +12,7 @@ exports[`should render Expense List with expenses 1`] = `
     note="test 1 note"
   />
   <ExpenseListItem
-    amount={10}
+    amount={1000}
     createdAt={-345600000}
     desc="test 2"
     id="2"
@@ -20,7 +20,7 @@ exports[`should render Expense List with expenses 1`] = `
     note="test 2 note"
   />
   <ExpenseListItem
-    amount={2}
+    amount={200}
     createdAt={345600000}
     desc="test 3"
     id="3"
