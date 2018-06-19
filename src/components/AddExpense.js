@@ -24,7 +24,7 @@ export class AddExpense extends Component {
 }
 
 AddExpense.propTypes = {
-  addExpense: PropTypes.func.isRequired,
+  addExpense: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getVisibleExpenses from '../selectors/expenses';
 import { ExpenseListItem } from './ExpenseListItem';
-import { ExpenseListFilter } from './ExpenseListFilter';
+import ExpenseListFilter from './ExpenseListFilter';
 
 const mapStateToProps = state => ({
   expenses: getVisibleExpenses(state.expenses, state.filters)
