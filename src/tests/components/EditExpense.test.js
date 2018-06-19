@@ -1,23 +1,24 @@
 import React from 'react';
-import { EditExpense } from '../../components/EditExpense';
 import { shallow } from 'enzyme';
+import { EditExpense } from '../../components/EditExpense';
 import expenses from '../fixtures/expenses';
 
 describe('Edit expense page', () => {
-  let wrapper, history, editExpense, removeExpense;
+  let wrapper;
+  let history;
+  let editExpense;
+  let removeExpense;
 
   beforeEach(() => {
     editExpense = jest.fn();
     removeExpense = jest.fn();
     history = { push: jest.fn() };
-    wrapper = shallow(
-      <EditExpense
+    wrapper = shallow(<EditExpense
         expense={expenses[0]}
         history={history}
         editExpense={editExpense}
         removeExpense={removeExpense}
-      />
-    );
+    />);
   });
 
   test('should render correctly', () => {

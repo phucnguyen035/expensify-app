@@ -1,5 +1,7 @@
 import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { DateRangePicker } from 'react-dates';
 import {
   setTextFilters,
   sortByAmount,
@@ -7,7 +9,6 @@ import {
   setStartDate,
   setEndDate
 } from '../actions/filters';
-import { DateRangePicker } from 'react-dates';
 
 const mapStateToProps = state => ({
   filters: state.filters
@@ -26,7 +27,7 @@ export class ExpenseListFilter extends Component {
   };
 
   // Sort function
-  onSortChange = sortValue => {
+  onSortChange = (sortValue) => {
     if (sortValue === 'date') {
       this.props.sortByDate();
     } else if (sortValue === 'amount') {
@@ -34,7 +35,7 @@ export class ExpenseListFilter extends Component {
     }
   };
 
-  onTextChange = text => {
+  onTextChange = (text) => {
     this.props.setTextFilters(text);
   };
   onDatesChange = ({ startDate, endDate }) => {
@@ -42,7 +43,7 @@ export class ExpenseListFilter extends Component {
     this.props.setEndDate(endDate);
   };
 
-  focusedInput = focusedInput => {
+  focusedInput = (focusedInput) => {
     this.setState(() => ({ focusedInput }));
   };
 
@@ -54,9 +55,7 @@ export class ExpenseListFilter extends Component {
           value={this.props.filters.text}
           onChange={e => this.onTextChange(e.target.value)}
         />
-        <select
-          value={this.props.filters.sortBy}
-          onChange={e => this.onSortChange(e.target.value)}>
+        <select value={this.props.filters.sortBy} onChange={e => this.onSortChange(e.target.value)}>
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
@@ -71,13 +70,24 @@ export class ExpenseListFilter extends Component {
           onFocusChange={this.focusedInput}
           isOutsideRange={() => false}
           numberOfMonths={1}
-          showClearDates={true}
+          showClearDates
           displayFormat="DD/MM/YYYY"
         />
       </Fragment>
     );
   }
 }
+
+ExpenseListFilter.propTypes = {
+  filters: PropTypes.objectOf(PropTypes.any),
+  sortByDate: PropTypes.func,
+  sortByAmount: PropTypes.func,
+  setTextFilters: PropTypes.func,
+  setStartDate: PropTypes.func,
+  setEndDate: PropTypes.func
+};
+
+ExpenseListFilter.defaultProps = undefined;
 
 export default connect(
   mapStateToProps,
