@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
@@ -13,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export class EditExpense extends Component {
-  onSubmit = (expense) => {
+  onSubmit = expense => {
     this.props.editExpense(this.props.expense.id, expense);
     this.props.history.push('/');
   };
@@ -31,19 +30,6 @@ export class EditExpense extends Component {
     );
   }
 }
-
-EditExpense.propTypes = {
-  editExpense: PropTypes.func.isRequired,
-  removeExpense: PropTypes.func.isRequired,
-
-  history: PropTypes.shape({
-    push: PropTypes.func
-  }).isRequired,
-
-  expense: PropTypes.shape({
-    id: PropTypes.string
-  }).isRequired
-};
 
 export default connect(
   mapStateToProps,

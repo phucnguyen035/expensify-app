@@ -1,5 +1,5 @@
 // getExpensesTotal
-export default (expenses) => {
+export default expenses => {
   const expensesAmount = expenses.map(expense => expense.amount);
   const reducer = (sum, value) => sum + value;
 

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
@@ -17,19 +16,19 @@ export default class ExpenseForm extends Component {
     };
   }
 
-  onDescChange = (e) => {
+  onDescChange = e => {
     const desc = e.target.value;
 
     this.setState(() => ({ desc }));
   };
 
-  onNoteChange = (e) => {
+  onNoteChange = e => {
     const note = e.target.value;
 
     this.setState(() => ({ note }));
   };
 
-  onAmountChange = (e) => {
+  onAmountChange = e => {
     const amount = e.target.value;
     // Match amount with number only with 2 decimal places
     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
@@ -37,7 +36,7 @@ export default class ExpenseForm extends Component {
     }
   };
 
-  onDateChange = (createdAt) => {
+  onDateChange = createdAt => {
     if (createdAt) {
       this.setState(() => ({ createdAt }));
     }
@@ -47,7 +46,7 @@ export default class ExpenseForm extends Component {
     this.setState(() => ({ focused }));
   };
 
-  onFormSubmit = (e) => {
+  onFormSubmit = e => {
     e.preventDefault();
     if (!this.state.desc || !this.state.amount) {
       this.setState(() => ({
@@ -74,6 +73,7 @@ export default class ExpenseForm extends Component {
             value={this.state.desc}
             placeholder="Description"
             onChange={this.onDescChange}
+            autoFocus
           />
 
           <input
@@ -105,13 +105,3 @@ export default class ExpenseForm extends Component {
     );
   }
 }
-
-ExpenseForm.propTypes = {
-  desc: PropTypes.string,
-  amount: PropTypes.number,
-  note: PropTypes.string,
-  onSubmit: PropTypes.func,
-  createdAt: PropTypes.number
-};
-
-ExpenseForm.defaultProps = undefined;

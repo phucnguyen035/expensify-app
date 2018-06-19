@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import numeral from 'numeral';
 import { Link } from 'react-router-dom';
 
-export const ExpenseListItem = ({
-  amount, createdAt, desc, id
-}) => (
+export const ExpenseListItem = ({ amount, createdAt, desc, id }) => (
   <div>
     <h3>
       <Link to={`/edit/${id}`}>{desc}</Link>
@@ -18,12 +15,5 @@ export const ExpenseListItem = ({
     </p>
   </div>
 );
-
-ExpenseListItem.propTypes = {
-  amount: PropTypes.number.isRequired,
-  createdAt: PropTypes.number.isRequired,
-  desc: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
-};
 
 export default ExpenseListItem;

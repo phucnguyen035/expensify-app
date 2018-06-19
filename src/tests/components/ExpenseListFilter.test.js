@@ -1,16 +1,11 @@
 import React from 'react';
-import moment from 'moment';
-import { shallow } from 'enzyme';
-import { DateRangePicker } from 'react-dates';
 import { ExpenseListFilter } from '../../components/ExpenseListFilter';
+import { shallow } from 'enzyme';
 import { filters, altFilters } from '../fixtures/filters';
+import { DateRangePicker } from 'react-dates';
+import moment from 'moment';
 
-let setTextFilters;
-let sortByDate;
-let sortByAmount;
-let setStartDate;
-let setEndDate;
-let wrapper;
+let setTextFilters, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper;
 
 beforeEach(() => {
   setTextFilters = jest.fn();
@@ -19,14 +14,16 @@ beforeEach(() => {
   setStartDate = jest.fn();
   setEndDate = jest.fn();
 
-  wrapper = shallow(<ExpenseListFilter
+  wrapper = shallow(
+    <ExpenseListFilter
       filters={filters}
       setTextFilters={setTextFilters}
       sortByDate={sortByDate}
       sortByAmount={sortByAmount}
       setStartDate={setStartDate}
       setEndDate={setEndDate}
-  />);
+    />
+  );
 });
 
 describe('Expense List Filter', () => {

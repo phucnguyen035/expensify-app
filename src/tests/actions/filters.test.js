@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {
   setTextFilters,
   sortByAmount,
@@ -6,6 +5,7 @@ import {
   setStartDate,
   setEndDate
 } from '../../actions/filters';
+import moment from 'moment';
 
 test('should return text filter action object with value', () => {
   const text = 'abc';
