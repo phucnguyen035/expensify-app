@@ -2,10 +2,7 @@ import uuidv4 from 'uuid/v4';
 
 // ADD_EXPENSE
 const addExpense = ({
-  desc = '',
-  note = '',
-  amount = 0,
-  createdAt = 0
+  desc = '', note = '', amount = 0, createdAt = 0
 } = {}) => ({
   type: 'ADD_EXPENSE',
   expense: {

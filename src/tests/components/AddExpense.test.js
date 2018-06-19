@@ -1,10 +1,12 @@
 import React from 'react';
-import { AddExpense } from '../../components/AddExpense';
 import { shallow } from 'enzyme';
+import { AddExpense } from '../../components/AddExpense';
 import expenses from '../fixtures/expenses';
 
 describe('Add expense page', () => {
-  let addExpense, history, wrapper;
+  let addExpense;
+  let history;
+  let wrapper;
 
   beforeEach(() => {
     addExpense = jest.fn();

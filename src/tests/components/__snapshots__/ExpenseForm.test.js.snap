@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseForm correctly 1`] = `
+exports[`Expense form  should render ExpenseForm correctly 1`] = `
 <React.Fragment>
   <form
     onSubmit={[Function]}
   >
     <input
-      autoFocus={true}
       onChange={[Function]}
       placeholder="Description"
       type="text"
@@ -102,13 +101,12 @@ exports[`should render ExpenseForm correctly 1`] = `
 </React.Fragment>
 `;
 
-exports[`should render ExpenseForm with expense data 1`] = `
+exports[`Expense form  should render ExpenseForm with expense data 1`] = `
 <React.Fragment>
   <form
     onSubmit={[Function]}
   >
     <input
-      autoFocus={true}
       onChange={[Function]}
       placeholder="Description"
       type="text"
@@ -204,13 +202,12 @@ exports[`should render ExpenseForm with expense data 1`] = `
 </React.Fragment>
 `;
 
-exports[`should render error for invalid form submission 1`] = `
+exports[`Expense form  should render error for invalid form submission 1`] = `
 <React.Fragment>
   <form
     onSubmit={[Function]}
   >
     <input
-      autoFocus={true}
       onChange={[Function]}
       placeholder="Description"
       type="text"
@@ -306,7 +303,7 @@ exports[`should render error for invalid form submission 1`] = `
 </React.Fragment>
 `;
 
-exports[`should render error for invalid form submission 2`] = `
+exports[`Expense form  should render error for invalid form submission 2`] = `
 <React.Fragment>
   <p>
     Please provide description and amount.
@@ -315,7 +312,6 @@ exports[`should render error for invalid form submission 2`] = `
     onSubmit={[Function]}
   >
     <input
-      autoFocus={true}
       onChange={[Function]}
       placeholder="Description"
       type="text"

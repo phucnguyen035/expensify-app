@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import numeral from 'numeral';
 import getExpensesTotal from '../selectors/expenses-total';
 import getVisibleExpenses from '../selectors/expenses';
-import numeral from 'numeral';
 
-const mapStatetoProps = state => {
+const mapStatetoProps = (state) => {
   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
   return {
@@ -23,6 +24,16 @@ export const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
       {expenseCount !== 0 && <span>totaling {formattedExpensesTotal}</span>}
     </h2>
   );
+};
+
+ExpensesSummary.propTypes = {
+  expenseCount: PropTypes.number,
+  expensesTotal: PropTypes.number
+};
+
+ExpensesSummary.defaultProps = {
+  expenseCount: undefined,
+  expensesTotal: undefined
 };
 
 export default connect(mapStatetoProps)(ExpensesSummary);

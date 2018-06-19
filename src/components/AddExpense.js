@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import ExpenseForm from './ExpenseForm';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
+const mapDispatchToProps = dispatch => ({ addExpense: expense => dispatch(addExpense(expense)) });
+
 export class AddExpense extends Component {
-  onSubmit = expense => {
+  onSubmit = (expense) => {
     this.props.addExpense(expense);
     this.props.history.push('/');
   };
@@ -20,9 +23,12 @@ export class AddExpense extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addExpense: expense => dispatch(addExpense(expense))
-});
+AddExpense.propTypes = {
+  addExpense: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired
+};
 
 export default connect(
   undefined,
