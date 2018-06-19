@@ -1,6 +1,8 @@
 import moment from 'moment';
 // Visible expenses
-export default (expenses, { text, startDate, endDate, sortBy }) =>
+export default (expenses, {
+  text, startDate, endDate, sortBy
+}) =>
   expenses
     .filter((expense) => {
       const startDateMatch = startDate ? startDate.isSameOrBefore(moment(expense.createdAt)) : true;

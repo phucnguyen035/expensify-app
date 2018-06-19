@@ -7,11 +7,7 @@ import { Provider } from 'react-redux';
 import AppRouter from './routes/AppRouter';
 import configStore from './store/configStore';
 import './styles/styles.scss';
-<<<<<<< HEAD
-import 'react-dates/lib/css/_datepicker.css';
 import './database/firebase';
-=======
->>>>>>> 55959bedd41c9868431d0f2e4fa56ab4a6c7ccc8
 
 const store = configStore();
 

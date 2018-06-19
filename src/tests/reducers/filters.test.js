@@ -1,5 +1,5 @@
-import filtersReducer from '../../reducers/filters';
 import moment from 'moment';
+import filtersReducer from '../../reducers/filters';
 
 // Test default filter values
 test('should set up default filter values', () => {
