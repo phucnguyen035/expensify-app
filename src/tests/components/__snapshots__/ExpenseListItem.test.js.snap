@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render expense list item 1`] = `
+exports[`Expense item should render correctly 1`] = `
 <div>
   <h3>
     <Link

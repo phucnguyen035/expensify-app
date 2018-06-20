@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render expense dashboard 1`] = `
+exports[`Expense Dashboard should render correctly 1`] = `
 <div>
-  <ExpensesSummary />
-  <ExpenseList />
+  <Connect(ExpensesSummary) />
+  <Connect(ExpenseList) />
 </div>
 `;
