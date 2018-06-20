@@ -30,6 +30,8 @@ AddExpense.propTypes = {
   }).isRequired
 };
 
+AddExpense.defaultProps = undefined;
+
 export default connect(
   undefined,
   mapDispatchToProps

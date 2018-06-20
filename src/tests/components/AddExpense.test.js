@@ -14,7 +14,9 @@ describe('Add expense page', () => {
     wrapper = shallow(<AddExpense addExpense={addExpense} history={history} />);
   });
 
-  test('should render correctly', () => expect(wrapper).toMatchSnapshot());
+  test('should render correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
   test('should handle onSubmit', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);

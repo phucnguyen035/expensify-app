@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render expense dashboard 1`] = `
+exports[`404 Page should render correctly 1`] = `
 <div>
   404 
   <Link
