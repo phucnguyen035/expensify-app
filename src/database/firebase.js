@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import moment from 'moment';
 
 const config = {
   apiKey: 'AIzaSyBYBMpHR5SKM5LIgotUWhTvjTkIkdGkT3w',
@@ -11,3 +12,5 @@ const config = {
 firebase.initializeApp(config);
 
 const db = firebase.database();
+
+export { firebase, db as default };

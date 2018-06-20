@@ -1,18 +1,27 @@
 import uuidv4 from 'uuid/v4';
+import db from '../database/firebase';
 
 // ADD_EXPENSE
-const addExpense = ({
-  desc = '', note = '', amount = 0, createdAt = 0
-} = {}) => ({
+const addExpense = newExpense => ({
   type: 'ADD_EXPENSE',
-  expense: {
-    id: uuidv4(),
-    desc,
-    note,
-    amount,
-    createdAt
-  }
+  expense: newExpense
 });
+
+const startAddExpense = (expenseData = {}) => (dispatch) => {
+  const { amount, createdAt, desc, note } = expenseData;
+  const newExpense = { amount, createdAt, desc, note };
+
+  db.ref('expenses')
+    .push(newExpense)
+    .then((ref) => {
+      dispatch(
+        addExpense({
+          id: ref.key,
+          ...newExpense
+        })
+      );
+    });
+};
 
 // REMOVE_EXPENSE
 const removeExpense = ({ id } = {}) => ({
@@ -27,4 +36,4 @@ const editExpense = (id, updates) => ({
   updates
 });
 
-export { addExpense, removeExpense, editExpense };
+export { addExpense, startAddExpense, removeExpense, editExpense };
