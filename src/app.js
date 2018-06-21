@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routes/AppRouter';
 import configStore from './store/configStore';
+import { startSetExpenses } from './actions/expenses';
 import './styles/styles.scss';
 import './database/firebase';
 
@@ -17,4 +18,8 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.querySelector('#appRoot'));
+ReactDOM.render(<p>Loading...</p>, document.querySelector('#appRoot'));
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.querySelector('#appRoot'));
+});
