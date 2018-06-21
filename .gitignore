@@ -91,6 +91,7 @@ $RECYCLE.BIN/
 *.lnk
 
 public/assets
+.env.*
 
 
 
