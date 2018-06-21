@@ -1,11 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { startLogout } from '../actions/auth';
 
-const Header = () => (
+const mapDispatchToProps = dispatch => ({
+  logoutHandler: () => dispatch(startLogout())
+});
+
+export const Header = ({ logoutHandler }) => (
   <header>
     <h1>Expensify</h1>
-
-    <NavLink exact activeClassName="is-active" to="/">
+    <NavLink exact activeClassName="is-active" to="/dashboard">
       Dashboard
     </NavLink>
 
@@ -13,10 +19,16 @@ const Header = () => (
       Create Expense
     </NavLink>
 
-    <NavLink activeClassName="is-active" to="/login">
-      Login
-    </NavLink>
+    <button onClick={logoutHandler}>Logout</button>
   </header>
 );
 
-export default Header;
+Header.propTypes = {
+  logoutHandler: PropTypes.func
+};
+Header.defaultProps = undefined;
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Header);
