@@ -5,6 +5,7 @@ import ExpenseDashboard from '../components/ExpenseDashboard';
 import NotFoundPage from '../components/NotFoundPage';
 import AddExpense from '../components/AddExpense';
 import EditExpense from '../components/EditExpense';
+import LoginPage from '../components/LoginPage';
 
 const AppRouter = () => (
   <Router>
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <Route exact path="/" component={ExpenseDashboard} />
         <Route path="/create" component={AddExpense} />
         <Route path="/edit/:id" component={EditExpense} />
+        <Route path="/login" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Fragment>
