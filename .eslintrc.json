@@ -21,7 +21,9 @@
     "no-console": "off",
     "no-underscore-dangle": [
       "error",
-      { "allow": ["__REDUX_DEVTOOLS_EXTENSION__", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }
+      {
+        "allow": ["__REDUX_DEVTOOLS_EXTENSION__", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
+      }
     ],
     "function-paren-newline": ["error", "consistent"],
     "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
