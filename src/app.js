@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routes/AppRouter';
 import configStore from './store/configStore';
+import { login, logout } from './actions/auth';
 import { startSetExpenses } from './actions/expenses';
 import './styles/styles.scss';
 import { firebase } from './database/firebase';
@@ -28,6 +29,7 @@ ReactDOM.render(<p>Loading...</p>, document.querySelector('#appRoot'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    store.dispatch(login(user.uid));
     // Only set expenses when logged in
     store.dispatch(startSetExpenses()).then(() => {
       renderApp();
@@ -38,6 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
     });
   } else {
     // Logout, render app and push visitor to login page
+    store.dispatch(logout());
     renderApp();
     history.push('/');
   }
