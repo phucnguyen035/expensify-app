@@ -7,7 +7,9 @@ import {
   removeExpense,
   editExpense,
   setExpenses,
-  startSetExpenses
+  startSetExpenses,
+  startRemoveExpense,
+  startEditExpense
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 
@@ -35,6 +37,28 @@ describe('Expense Action', () => {
     });
   });
 
+  test('should remove expense from database and store', (done) => {
+    const store = mockStore({});
+    const { id } = expenses[1];
+
+    store
+      .dispatch(startRemoveExpense({ id }))
+      .then(() => {
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual({
+          type: 'REMOVE_EXPENSE',
+          id
+        });
+
+        return db.ref(`expenses/${id}`).once('value');
+      })
+      .then((snapshot) => {
+        expect(snapshot.val()).toBeNull();
+        done();
+      });
+  });
+
   test('should setup edit expense action object', () => {
     const action = editExpense('123abc', { note: 'updated note' });
 
@@ -43,6 +67,30 @@ describe('Expense Action', () => {
       id: '123abc',
       updates: { note: 'updated note' }
     });
+  });
+
+  test('should edit expense from database and store', (done) => {
+    const store = mockStore({});
+    const { id } = expenses[2];
+    const updates = { amount: 500000 };
+
+    store
+      .dispatch(startEditExpense(id, updates))
+      .then(() => {
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual({
+          type: 'EDIT_EXPENSE',
+          id,
+          updates
+        });
+
+        return db.ref(`expenses/${id}`).once('value');
+      })
+      .then((snapshot) => {
+        expect(snapshot.val().amount).toBe(updates.amount);
+        done();
+      });
   });
 
   test('should setup add expense action object with provided value', () => {

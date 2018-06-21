@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
-import { editExpense, removeExpense } from '../actions/expenses';
+import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 const mapStateToProps = (state, props) => ({
   expense: state.expenses.find(expense => expense.id === props.match.params.id)
 });
 const mapDispatchToProps = dispatch => ({
-  editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-  removeExpense: id => dispatch(removeExpense(id))
+  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
+  startRemoveExpense: id => dispatch(startRemoveExpense(id))
 });
 
 export class EditExpense extends Component {
   onSubmit = (expense) => {
-    this.props.editExpense(this.props.expense.id, expense);
+    this.props.startEditExpense(this.props.expense.id, expense);
     this.props.history.push('/');
   };
   onClick = () => {
-    this.props.removeExpense({ id: this.props.expense.id });
+    this.props.startRemoveExpense({ id: this.props.expense.id });
     this.props.history.push('/');
   };
 
@@ -33,16 +33,14 @@ export class EditExpense extends Component {
 }
 
 EditExpense.propTypes = {
-  editExpense: PropTypes.func.isRequired,
-  removeExpense: PropTypes.func.isRequired,
+  startEditExpense: PropTypes.func.isRequired,
+  startRemoveExpense: PropTypes.func.isRequired,
 
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
 
-  expense: PropTypes.shape({
-    id: PropTypes.string
-  }).isRequired
+  expense: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 export default connect(
