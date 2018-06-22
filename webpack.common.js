@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const env = require('dotenv');

@@ -17,9 +17,18 @@ export class AddExpense extends Component {
   render() {
     return (
       <div>
-        <h1>This is from my add expense component</h1>
+        <div className="page-header">
+          <div className="container">
+            <h2 className="page-header__title">Add expense</h2>
+          </div>
+        </div>
 
-        <ExpenseForm onSubmit={this.onSubmit} />
+        <div className="container">
+          <button className="button button--back" onClick={this.props.history.goBack}>
+            Back
+          </button>
+          <ExpenseForm onSubmit={this.onSubmit} />
+        </div>
       </div>
     );
   }
@@ -28,6 +37,7 @@ export class AddExpense extends Component {
 AddExpense.propTypes = {
   startAddExpense: PropTypes.func,
   history: PropTypes.shape({
+    goBack: PropTypes.func,
     push: PropTypes.func
   }).isRequired
 };

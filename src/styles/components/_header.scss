@@ -1,0 +1,24 @@
+.header {
+  background: $dark-blue;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $sm-size 0;
+  }
+
+  &__title {
+    color: white;
+    text-decoration: none;
+    transition: color ease 0.3s;
+
+    h1 {
+      margin: 0;
+    }
+
+    &:hover {
+      color: darken(white, 15%);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $md-size;
+
+  @include medium {
+    flex-direction: row;
+    margin-bottom: $lg-size;
+  }
+
+  &__item {
+    margin-bottom: $sm-size;
+
+    @include medium {
+      margin-bottom: 0;
+      margin-right: $sm-size;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

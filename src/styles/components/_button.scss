@@ -1,0 +1,48 @@
+.button {
+  border: none;
+  border-radius: 3px;
+  padding: $sm-size;
+  background-color: $blue;
+  color: white;
+  font-size: $font-lg;
+  font-weight: 300;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color ease 0.3s;
+
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+
+  &--link {
+    background: transparent;
+    transition: color ease 0.3s;
+
+    &:hover {
+      color: darken(white, 15%);
+      background: transparent;
+    }
+  }
+
+  &--secondary {
+    background: #888;
+
+    &:hover {
+      background: darken(#888, 10%);
+    }
+  }
+
+  &--back {
+    color: unset;
+    background-color: unset;
+    text-decoration: underline;
+    padding-top: 0;
+
+    &:hover {
+      background-color: unset;
+      outline: none;
+    }
+  }
+}

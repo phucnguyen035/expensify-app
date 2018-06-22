@@ -25,8 +25,23 @@ export class EditExpense extends Component {
   render() {
     return (
       <div>
-        <ExpenseForm {...this.props.expense} onSubmit={this.onSubmit} />
-        <button onClick={this.onClick}>Remove</button>
+        <div className="page-header">
+          <div className="container">
+            <h2 className="page-header__title">Edit Expense</h2>
+          </div>
+        </div>
+
+        <div className="container">
+          <button className="button button--back" onClick={this.props.history.goBack}>
+            Back
+          </button>
+
+          <ExpenseForm {...this.props.expense} onSubmit={this.onSubmit} />
+
+          <button className="button button--secondary" onClick={this.onClick}>
+            Remove Expense
+          </button>
+        </div>
       </div>
     );
   }
@@ -37,6 +52,7 @@ EditExpense.propTypes = {
   startRemoveExpense: PropTypes.func.isRequired,
 
   history: PropTypes.shape({
+    goBack: PropTypes.func,
     push: PropTypes.func
   }).isRequired,
 

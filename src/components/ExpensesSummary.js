@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import numeral from 'numeral';
+import { Link } from 'react-router-dom';
 import getExpensesTotal from '../selectors/expenses-total';
 import getVisibleExpenses from '../selectors/expenses';
 
@@ -19,10 +20,20 @@ export const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
   const expenseWord = expenseCount > 1 ? 'expenses ' : 'expense ';
 
   return (
-    <h2>
-      Showing {expenseCount} {expenseWord}
-      {expenseCount !== 0 && <span>totaling {formattedExpensesTotal}</span>}
-    </h2>
+    <div className="page-header">
+      <div className="container">
+        <h2 className="page-header__title">
+          Showing <span>{expenseCount}</span> {expenseWord}
+          {expenseCount !== 0 && <span>totaling {formattedExpensesTotal}</span>}
+        </h2>
+
+        <div className="page-header__actions">
+          <Link to="/create" className="button">
+            Add Expense
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import 'normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
-// import 'react-dates/initialize'; Remnant of new react-dates || Update when you have the time
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,6 +9,7 @@ import { login, logout } from './actions/auth';
 import { startSetExpenses } from './actions/expenses';
 import './styles/styles.scss';
 import { firebase } from './database/firebase';
+import LoadingPage from './components/LoadingPage';
 
 const store = configStore();
 const jsx = (
@@ -25,7 +25,7 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.querySelector('#appRoot'));
+ReactDOM.render(<LoadingPage />, document.querySelector('#appRoot'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
